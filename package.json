@@ -1,13 +1,27 @@
 {
   "name": "copy-file-tree",
   "displayName": "Copy File Tree",
-  "description": "",
+  "description": "Copy the file tree structure to the clipboard.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.92.0"
   },
   "categories": [
     "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dejmedus/copy-file-tree"
+  },
+  "bugs": {
+    "url": "https://github.com/dejmedus/copy-file-tree/issues"
+  },
+  "publisher": "dejmedus",
+  "license": "MIT",
+  "keywords": [
+    "file tree",
+    "copy",
+    "copy to clipboard"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
