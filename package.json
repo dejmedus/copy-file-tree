@@ -22,14 +22,22 @@
       "title": "Copy File Tree",
       "properties": {
         "copyFileTree.ignoreEnvironmentFiles": {
-          "description": "Prevent environment files like node_modules and __pycache__ from being added to the file tree representation.",
+          "description": "Prevent environment files like node_modules and __pycache__ from being included in the file tree.",
           "type": "boolean",
           "default": true
         },
         "copyFileTree.ignoreGitIgnore": {
-          "description": "Prevent files mentioned in .gitignore from being added to the file tree representation.",
+          "description": "Prevent files mentioned in .gitignore from being included the file tree.",
           "type": "boolean",
           "default": true
+        },
+        "copyFileTree.customIgnoredFiles": {
+          "description": "Files that will not be included in the file tree",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       }
     }
