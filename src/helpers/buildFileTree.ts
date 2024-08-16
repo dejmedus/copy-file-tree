@@ -1,6 +1,5 @@
-import * as fs from "fs";
-import * as path from "path";
-
+import fs from "fs";
+import path from "path";
 import { ignoreFile } from "./ignoreFiles";
 
 /**
@@ -13,10 +12,23 @@ import { ignoreFile } from "./ignoreFiles";
  */
 export default function buildFileTree(
   dir: string,
-  indent: string,
-  ignoredFiles: string[]
+  indent: string = "",
+  ignoredFiles: string[] = []
 ): string {
-  const items = fs.readdirSync(dir);
+  // vscode sorts directories first, then files alphabetically
+  const items = fs.readdirSync(dir).sort((a, b) => {
+    const aIsDirectory = fs.lstatSync(path.join(dir, a)).isDirectory();
+    const bIsDirectory = fs.lstatSync(path.join(dir, b)).isDirectory();
+
+    if (aIsDirectory && !bIsDirectory) {
+      return -1;
+    }
+    if (!aIsDirectory && bIsDirectory) {
+      return 1;
+    }
+    return a.localeCompare(b, undefined, { sensitivity: "base" });
+  });
+
   let tree = "";
 
   items.forEach((item, index) => {
