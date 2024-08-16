@@ -1,12 +1,20 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import ignoreFile from "./ignoreFile";
+import { ignoreFile } from "./ignoreFiles";
 
+/**
+ * Builds a file tree string
+ *
+ * @param {string} dir - The directory to build the file tree from.
+ * @param {string} indent - The string used for indentation.
+ * @param {string[]} ignoredFiles - The list of files to ignore.
+ * @returns {string} - The file tree string.
+ */
 export default function buildFileTree(
   dir: string,
   indent: string,
-  settings: any
+  ignoredFiles: string[]
 ): string {
   const items = fs.readdirSync(dir);
   let tree = "";
@@ -16,7 +24,7 @@ export default function buildFileTree(
     const isDirectory = fs.lstatSync(fullPath).isDirectory();
     const isLastItem = index === items.length - 1;
 
-    if (ignoreFile(dir, fullPath, settings)) {
+    if (ignoreFile(fullPath, ignoredFiles)) {
       return;
     }
 
@@ -26,7 +34,7 @@ export default function buildFileTree(
     tree += `${indent}${connector}${item}\n`;
 
     if (isDirectory) {
-      tree += buildFileTree(fullPath, indent + nextIndent, settings);
+      tree += buildFileTree(fullPath, indent + nextIndent, ignoredFiles);
     }
   });
 
