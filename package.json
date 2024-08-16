@@ -2,7 +2,7 @@
   "name": "copy-file-tree",
   "displayName": "Copy File Tree",
   "description": "Copy the file tree structure to the clipboard.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.92.0"
   },

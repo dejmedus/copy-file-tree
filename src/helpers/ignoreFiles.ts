@@ -44,14 +44,8 @@ export default function getIgnoredFiles(
  *
  * @returns boolean
  */
-export function ignoreFile(fullPath: string, ignoreFiles: string[]): boolean {
-  for (const file of ignoreFiles) {
-    if (fullPath.includes(file)) {
-      return true;
-    }
-  }
-
-  return false;
+export function ignoreFile(filePath: string, ignoredFiles: string[]): boolean {
+  return ignoredFiles.some((ignoredFile) => filePath.includes(ignoredFile));
 }
 
 const defaultIgnoredFiles = [
