@@ -8,7 +8,6 @@ Copy the current workspace file tree to the clipboard.
 
 ## Extension Settings
 
-
 Configure in settings which files not to include in the file tree:
 
 1. Open settings
@@ -24,44 +23,45 @@ Configure in settings which files not to include in the file tree:
 #### File tree example:
 
 ```txt
-├── README.md
-├── bun.lockb
-├── index.ts
-├── package-lock.json
-├── package.json
 ├── packages
 │   ├── cli
 │   │   ├── create.ts
 │   │   └── studio.ts
 │   ├── create
 │   │   └── files
-│   │       ├── README.md
 │   │       ├── package.json
+│   │       ├── README.md
 │   │       └── storyline.yaml
 │   ├── storyfiles
 │   │   ├── api
 │   │   └── validation
 │   │       ├── scehma.json
 │   │       └── validate.ts
-│   └── studio
-│       ├── .eslintrc.json
-│       ├── README.md
-│       ├── app
-│       │   ├── api
-│       │   ├── favicon.ico
-│       │   ├── globals.css
-│       │   └── page.tsx
-│       ├── next.config.mjs
-│       ├── package-lock.json
-│       ├── package.json
-│       ├── postcss.config.mjs
-│       ├── public
-│       ├── tailwind.config.ts
-│       └── tsconfig.json
+│   ├── studio
+│   │   ├── app
+│   │   │   ├── api
+│   │   │   ├── favicon.ico
+│   │   │   ├── globals.css
+│   │   │   └── page.tsx
+│   │   ├── public
+│   │   ├── .eslintrc.json
+│   │   ├── next.config.mjs
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── postcss.config.mjs
+│   │   ├── README.md
+│   │   ├── tailwind.config.ts
+│   │   └── tsconfig.json
 ├── scripts
 │   └── precompile.sh
+├── bun.lockb
+├── index.ts
+├── package-lock.json
+├── package.json
+├── README.md
 ├── terminal.config.json
 └── tsconfig.json
+
 
 ```
 
