@@ -3,7 +3,8 @@ import * as assert from "assert";
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
 import * as vscode from "vscode";
-// import * as myExtension from '../../extension';
+
+import getIgnoredFiles from "../helpers/ignoreFiles";
 
 suite("Configuration", () => {
   test("Valid Configuration", () => {
@@ -21,5 +22,22 @@ suite("Configuration", () => {
 
     assert.strictEqual(typeof ignoreEnvFiles, "boolean");
     assert.strictEqual(typeof ignoreGitIgnore, "boolean");
+  });
+
+  test("Get ignored files", () => {
+    const ignoreEnvFiles = true;
+    const ignoreGitIgnore = false;
+
+    const customIgnoredFiles = ["node_modules", "dist"];
+
+    const ignoredFiles = getIgnoredFiles("dir", {
+      ignoreEnvFiles,
+      ignoreGitIgnore,
+      customIgnoredFiles,
+    });
+
+    assert.ok(ignoredFiles, "Ignored files should be valid");
+    assert.ok(ignoredFiles.includes("node_modules"));
+    assert.ok(ignoredFiles.includes(".vscode"));
   });
 });
