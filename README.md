@@ -1,71 +1,70 @@
-# copyFileTree README
+<div align="center">
+<h1>Copy File Tree</h1>
+</div>
 
-This is the README for your extension "copyFileTree". After writing up a brief description, we recommend including the following sections.
+Copy the current workspace file tree to the clipboard.
 
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+![Demo](https://github.com/dejmedus/gifs/blob/main/copy-file-tree-demo.gif?raw=true)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
-For example:
+Configure in settings which files not to include in the file tree:
 
-This extension contributes the following settings:
+1. Open settings
+   - Click the gear icon in the bottom left corner, or
+   - Navigate to `File > Preferences > Settings`
+2. Search for "Copy File Tree" in the search bar at the top of the settings window.
+3. Modify the settings:
+   - `Copy File Tree: Ignore Environment Files`: Whether to ignore [environment files](#environment-files).
+   - `Copy File Tree: Ignore Git Ignore`: Whether to ignore files listed in .gitignore.
+   - `Copy File Tree: Custom Ignored Files`: An array of custom files to ignore.
+   
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+#### File tree example:
 
-## Known Issues
+```txt
+├── README.md
+├── bun.lockb
+├── index.ts
+├── package-lock.json
+├── package.json
+├── packages
+│   ├── cli
+│   │   ├── create.ts
+│   │   └── studio.ts
+│   ├── create
+│   │   └── files
+│   │       ├── README.md
+│   │       ├── package.json
+│   │       └── storyline.yaml
+│   ├── storyfiles
+│   │   ├── api
+│   │   └── validation
+│   │       ├── scehma.json
+│   │       └── validate.ts
+│   └── studio
+│       ├── .eslintrc.json
+│       ├── README.md
+│       ├── app
+│       │   ├── api
+│       │   ├── favicon.ico
+│       │   ├── globals.css
+│       │   └── page.tsx
+│       ├── next.config.mjs
+│       ├── package-lock.json
+│       ├── package.json
+│       ├── postcss.config.mjs
+│       ├── public
+│       ├── tailwind.config.ts
+│       └── tsconfig.json
+├── scripts
+│   └── precompile.sh
+├── terminal.config.json
+└── tsconfig.json
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```
 
-## Release Notes
+#### Environment files:
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+`node_modules` `dist` `build` `out` `coverage` `.next` `.git` `.DS_Store` `.vscode` `temp` `logs` `__pycache__` `.venv` `env` `venv` `target` `.idea` `.classpath` `.project` `.bundle` `vendor/bundle` `vendor` `bin` `pkg` `CMakeFiles` `.stack-work` `_build` `deps` `.dart_tool` and `.flutter-plugins`.
