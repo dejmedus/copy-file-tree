@@ -1,6 +1,6 @@
 {
-  "name": "copy-filetree",
-  "displayName": "copy-filetree",
+  "name": "copy-file-tree",
+  "displayName": "Copy File Tree",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -14,10 +14,25 @@
   "contributes": {
     "commands": [
       {
-        "command": "copy-filetree.copy",
+        "command": "copyFileTree.copyFileTree",
         "title": "Copy file tree"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Copy File Tree",
+      "properties": {
+        "copyFileTree.ignoreEnvironmentFiles": {
+          "description": "Prevent environment files like node_modules and __pycache__ from being added to the file tree representation.",
+          "type": "boolean",
+          "default": true
+        },
+        "copyFileTree.ignoreGitIgnore": {
+          "description": "Prevent files mentioned in .gitignore from being added to the file tree representation.",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
