@@ -1,6 +1,6 @@
-# copy-filetree README
+# copyFileTree README
 
-This is the README for your extension "copy-filetree". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "copyFileTree". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 
